@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDQACJw0AAicNAABnDQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAALAAAAAe/wAArAAAA6AAAAWmHwAFnDQAB5w0AAGcNAAAnDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AADiAAABg3gAIIOdAHZ/lACOfHAAKLsAAAOcNAAKnDQAApw0AACcNAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAACoiEACICDAB2CngC4f5wA/3+aALd8fwAitQAABJw1AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDQACZw1AAa4AAADfnUAJXyTALV9lwD/fZUAtXd+AB6wAAAEnDQACZw0AAKcNAAAnDQAAJw0AACcNAABnDQACpw0AAacNAAFnDQACwD/AAB5bwAkgpsAuYamAP+AmAC0gYMAGaUYAAWcNAAKnDMAAZw0AACcNAABnDQAB5w0AAadNAAHnDQAC5w0AAKcNQALswAABoKFAC1/mQDZhqYA/4SYAHWqAAAEnDQABpw0AAecNAABnDQACJw0AAecNAANnDQACJw0AAucNAAKoikACX44AA5+kwCBfpkA9H+ZAOGEkQBLowcABpw0AA2cNAAHnDQACJw0AAicNAAHnDQADZw0AAicNAALoSgACYxUAA9+lACDfpkA+X6ZAN51gABJoBMACZ00AAicNAANnDQAB5w0AAicNAABnDQAB5w0AAadNAAHni4ACoCDAAqAlQCBfpkA936YAOB8hwBJAP8AAJ0zAAqcNAAHnDQABpw0AAecNAABnDQAAJw0AAGcNAAKnDQABrQAAAKBkgBhhqYA+X+ZANt1fgBFW/8AAJ00AAucNAAFnDQABpw0AAqcNAABnDQAAJw0AACcNAAAnDQAApw0AAmnGgAFeIIAIX2VALSAlwCZgI4AUIB1ACK3AAADnDUABpw0AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDUACbQAAAR8gAAif5oAsoCcAPyCnQC3foYAI6EhAAicNAACnDQAAJw0AAAAAAAAAAAAAAAAAACcNAAAnDQAAJw0AAKcNQAKuwAAA3tuACd+lQC7gqAA+H2QAF9h/wAAmTQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJw0AACcNAAAnDQAAZw0AAeyAAAEf4gAJYCZAF57kwAKgIUAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDUACKIZAAaF+wAAfogAAHyTAAAAAAAAAAAAAAAAAAAAAAAA5CcAAMwTAACQCQAAIAQAAEACAACCAQAAAAAAAAAAAAAAAAAAACAAAIBBAABAAgAAIAQAAJAZAADIEwAA5GcAAA==" />
-    <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDQACJw0AAicNAABnDQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAALAAAAAe/wAArAAAA6AAAAWmHwAFnDQAB5w0AAGcNAAAnDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AADiAAABg3gAIIOdAHZ/lACOfHAAKLsAAAOcNAAKnDQAApw0AACcNAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAACoiEACICDAB2CngC4f5wA/3+aALd8fwAitQAABJw1AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDQACZw1AAa4AAADfnUAJXyTALV9lwD/fZUAtXd+AB6wAAAEnDQACZw0AAKcNAAAnDQAAJw0AACcNAABnDQACpw0AAacNAAFnDQACwD/AAB5bwAkgpsAuYamAP+AmAC0gYMAGaUYAAWcNAAKnDMAAZw0AACcNAABnDQAB5w0AAadNAAHnDQAC5w0AAKcNQALswAABoKFAC1/mQDZhqYA/4SYAHWqAAAEnDQABpw0AAecNAABnDQACJw0AAecNAANnDQACJw0AAucNAAKoikACX44AA5+kwCBfpkA9H+ZAOGEkQBLowcABpw0AA2cNAAHnDQACJw0AAicNAAHnDQADZw0AAicNAALoSgACYxUAA9+lACDfpkA+X6ZAN51gABJoBMACZ00AAicNAANnDQAB5w0AAicNAABnDQAB5w0AAadNAAHni4ACoCDAAqAlQCBfpkA936YAOB8hwBJAP8AAJ0zAAqcNAAHnDQABpw0AAecNAABnDQAAJw0AAGcNAAKnDQABrQAAAKBkgBhhqYA+X+ZANt1fgBFW/8AAJ00AAucNAAFnDQABpw0AAqcNAABnDQAAJw0AACcNAAAnDQAApw0AAmnGgAFeIIAIX2VALSAlwCZgI4AUIB1ACK3AAADnDUABpw0AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDUACbQAAAR8gAAif5oAsoCcAPyCnQC3foYAI6EhAAicNAACnDQAAJw0AAAAAAAAAAAAAAAAAACcNAAAnDQAAJw0AAKcNQAKuwAAA3tuACd+lQC7gqAA+H2QAF9h/wAAmTQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJw0AACcNAAAnDQAAZw0AAeyAAAEf4gAJYCZAF57kwAKgIUAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDUACKIZAAaF+wAAfogAAHyTAAAAAAAAAAAAAAAAAAAAAAAA5CcAAMwTAACQCQAAIAQAAEACAACCAQAAAAAAAAAAAAAAAAAAACAAAIBBAABAAgAAIAQAAJAZAADIEwAA5GcAAA==" />
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Soyo-Wind</title>
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8dba5;
-            font-family: "Sawarabi Gothic", sans-serif;
-        }
-        header{
-            margin-left: 1vw;
-        }
-        main,footer{
-            margin-left: 5vw;
-        }
-        h2,h4{
-            margin: 0;
-        }
-        a {
-            color: #000000;
-            text-decoration: underline;
-        }
-    </style>
+  <title>Soyo-Wind</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      background-color: #f8dba5;
+      font-family: "Sawarabi Gothic", sans-serif;
+    }
+    header{
+      margin-left: 1vw;
+      width: 20vw;
+    }
+    main{
+      width: 20vw;
+    }
+    footer{
+      margin-left: 4vw;
+      width: 55vw;
+    }
+    h2,h4{
+      margin: 0;
+    }
+    a {
+      color: #000000;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Soyo-Wind</h1>
-        <p class="subtitle">とある人</p>
-    </header>
-    <main>
-        <h1>My repository</h1>
-        <br>
-        <div id="sedit">
-            <h2><a href="https://github.com/Soyo-Wind/SharpEdit/">SharpEdit</a></h2>
-            <h4><a href="https://soyo-wind.github.io/SharpEdit/">Playground</a></h4>
-            <p>1File C# IDE</p>
-        </div>
-        <div id="dsharp">
-            <h2><a href="https://github.com/Soyo-Wind/DSharp/">D#</a></h2>
-            <p>Soyo's Original programming lang</p>
-        </div>
-    </main>
-    <footer>
-        <h1 id="footh"></h1>
-        <p id="foop"></p>
-    </footer>
-    <script>
+  <header>
+    <h1>Soyo-Wind</h1>
+    <p class="subtitle">とある人</p>
+  </header>
+  <main>
+    <h1>My repository</h1>
+    <br>
+    <div id="sedit">
+      <h2><a href="https://github.com/Soyo-Wind/SharpEdit/">SharpEdit</a></h2>
+      <h4><a href="https://soyo-wind.github.io/SharpEdit/">Playground</a></h4>
+      <p>1File C# IDE</p>
+    </div>
+    <div id="dsharp">
+      <h2><a href="https://github.com/Soyo-Wind/DSharp/">D#</a></h2>
+      <p>Soyo's Original programming lang</p>
+    </div>
+  </main>
+  <footer>
+    <h1 id="footh"></h1>
+    <p id="foop"></p>
+  </footer>
+  <script>
 const footh = document.getElementById("footh");
 const foop = document.getElementById("foop");
 
@@ -69,23 +75,18 @@ const data = {
     desc: "Soyo-Windが作ったプログラミング言語。\n構文はPython:アセンブリが30:70の比率である。\nD#の構文をC++に変換する。"
   }
 };
-
-// mainの中の要素にホバーで内容を表示
 for (const id in data) {
   document.getElementById(id).addEventListener('mouseover', () => {
     footh.innerText = data[id].title;
     foop.innerText = data[id].desc;
   });
 }
-
-// main以外にホバーしたら消す
 document.body.addEventListener('mouseover', (e) => {
   if (document.querySelector("header").contains(e.target)) {
     footh.innerText = "";
     foop.innerText = "";
   }
 });
-
     </script>
 </body>
 </html>
