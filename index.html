@@ -1,106 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDQACJw0AAicNAABnDQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAALAAAAAe/wAArAAAA6AAAAWmHwAFnDQAB5w0AAGcNAAAnDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AADiAAABg3gAIIOdAHZ/lACOfHAAKLsAAAOcNAAKnDQAApw0AACcNAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAACoiEACICDAB2CngC4f5wA/3+aALd8fwAitQAABJw1AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDQACZw1AAa4AAADfnUAJXyTALV9lwD/fZUAtXd+AB6wAAAEnDQACZw0AAKcNAAAnDQAAJw0AACcNAABnDQACpw0AAacNAAFnDQACwD/AAB5bwAkgpsAuYamAP+AmAC0gYMAGaUYAAWcNAAKnDMAAZw0AACcNAABnDQAB5w0AAadNAAHnDQAC5w0AAKcNQALswAABoKFAC1/mQDZhqYA/4SYAHWqAAAEnDQABpw0AAecNAABnDQACJw0AAecNAANnDQACJw0AAucNAAKoikACX44AA5+kwCBfpkA9H+ZAOGEkQBLowcABpw0AA2cNAAHnDQACJw0AAicNAAHnDQADZw0AAicNAALoSgACYxUAA9+lACDfpkA+X6ZAN51gABJoBMACZ00AAicNAANnDQAB5w0AAicNAABnDQAB5w0AAadNAAHni4ACoCDAAqAlQCBfpkA936YAOB8hwBJAP8AAJ0zAAqcNAAHnDQABpw0AAecNAABnDQAAJw0AAGcNAAKnDQABrQAAAKBkgBhhqYA+X+ZANt1fgBFW/8AAJ00AAucNAAFnDQABpw0AAqcNAABnDQAAJw0AACcNAAAnDQAApw0AAmnGgAFeIIAIX2VALSAlwCZgI4AUIB1ACK3AAADnDUABpw0AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDUACbQAAAR8gAAif5oAsoCcAPyCnQC3foYAI6EhAAicNAACnDQAAJw0AAAAAAAAAAAAAAAAAACcNAAAnDQAAJw0AAKcNQAKuwAAA3tuACd+lQC7gqAA+H2QAF9h/wAAmTQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJw0AACcNAAAnDQAAZw0AAeyAAAEf4gAJYCZAF57kwAKgIUAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDUACKIZAAaF+wAAfogAAHyTAAAAAAAAAAAAAAAAAAAAAAAA5CcAAMwTAACQCQAAIAQAAEACAACCAQAAAAAAAAAAAAAAAAAAACAAAIBBAABAAgAAIAQAAJAZAADIEwAA5GcAAA==" />
+  <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDQACJw0AAicNAABnDQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAALAAAAAe/wAArAAAA6AAAAWmHwAFnDQAB5w0AAGcNAAAnDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AADiAAABg3gAIIOdAHZ/lACOfHAAKLsAAAOcNAAKnDQAApw0AACcNAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAACoiEACICDAB2CngC4f5wA/3+aALd8fwAitQAABJw1AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDQACZw1AAa4AAADfnUAJXyTALV9lwD/fZUAtXd+AB6wAAAEnDQACZw0AAKcNAAAnDQAAJw0AACcNAABnDQACpw0AAacNAAFnDQACwD/AAB5bwAkgpsAuYamAP+AmAC0gYMAGaUYAAWcNAAKnDMAAZw0AACcNAABnDQAB5w0AAadNAAHnDQAC5w0AAKcNQALswAABoKFAC1/mQDZhqYA/4SYAHWqAAAEnDQABpw0AAecNAABnDQACJw0AAecNAANnDQACJw0AAucNAAKoikACX44AA5+kwCBfpkA9H+ZAOGEkQBLowcABpw0AA2cNAAHnDQACJw0AAicNAAHnDQADZw0AAicNAALoSgACYxUAA9+lACDfpkA+X6ZAN51gABJoBMACZ00AAicNAANnDQAB5w0AAicNAABnDQAB5w0AAadNAAHni4ACoCDAAqAlQCBfpkA936YAOB8hwBJAP8AAJ0zAAqcNAAHnDQABpw0AAecNAABnDQAAJw0AAGcNAAKnDQABrQAAAKBkgBhhqYA+X+ZANt1fgBFW/8AAJ00AAucNAAFnDQABpw0AAqcNAABnDQAAJw0AACcNAAAnDQAApw0AAmnGgAFeIIAIX2VALSAlwCZgI4AUIB1ACK3AAADnDUABpw0AAmcNAACnDQAAJw0AAAAAAAAnDQAAJw0AACcNAACnDUACbQAAAR8gAAif5oAsoCcAPyCnQC3foYAI6EhAAicNAACnDQAAJw0AAAAAAAAAAAAAAAAAACcNAAAnDQAAJw0AAKcNQAKuwAAA3tuACd+lQC7gqAA+h3QAF9h/wAAmTQAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAJw0AACcNAAAnDQAAZw0AAeyAAAEf4gAJYCZAF57kwAKgIUAAJw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnDQAAJw0AACcNAABnDUACKIZAAaF+wAAfogAAHyTAAAAAAAAAAAAAAAAAAAAAAAA5CcAAMwTAACQCQAAIAQAAEACAACCAQAAAAAAAAAAAAAAAAAAACAAAIBBAABAAgAAIAQAAJAZAADIEwAA5GcAAA==" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Soyo-Wind</title>
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
-      margin: 0;
-      background-color: #f8dba5;
-    }
-    header{
-      margin-left: 1vw;
-      width: 20vw;
-      height: 100vh;
-    }
-    main{
-      width: 20vw;
-    }
-    footer{
-      margin-left: 4vw;
-      width: 55vw;
-    }
-    h2,h4{
-      margin: 0;
-      color: system-color(SelectedItem);
-    }
-    a {
-      color: #000000;
-      text-decoration: underline;
-    }
-  </style>
+  <style>a {color: #000000;text-decoration: underline;}</style>
 </head>
 <body>
   <header>
-    <h1>Soyo-Wind</h1>
-    <p class="subtitle">とある人</p>
+    <h2><p>My repository</p></h2>
   </header>
   <main>
-    <h1>My repository</h1>
-    <br>
     <div id="sedit">
-      <h2><a href="https://github.com/Soyo-Wind/SharpEdit/">SharpEdit</a></h2>
+      <h3><a href="https://github.com/Soyo-Wind/SharpEdit/">SharpEdit</a></h3>
       <h4><a href="https://soyo-wind.github.io/SharpEdit/">Playground</a></h4>
       <p>1File C# IDE</p>
+      <p>1ファイルのC#IDE。<br>エディタにはAceEditor,フォントはJetBrains Mono,実行はWandboxAPIを使用している。</p>
     </div>
     <div id="dsharp">
-      <h2><a href="https://github.com/Soyo-Wind/DSharp/">D#</a></h2>
+      <h3><a href="https://github.com/Soyo-Wind/DSharp/">D#</a></h3>
       <p>Soyo's Original programming lang</p>
+      <p>Soyo-Windが作ったプログラミング言語。<br>構文はPython:アセンブリが30:70の比率である。<br>D#の構文をC++に変換する。</p>
     </div>
     <div id="grklang">
-      <h2><a href="https://github.com/Soyo-Wind/grk-lang/">grk-lang</a></h2>
+      <h3><a href="https://github.com/Soyo-Wind/grk-lang/">grk-lang</a></h3>
       <p>Soyo's Original lang(not programming lang)</p>
+      <p>Soyo-Windのオリジナル言語</p>
     </div>
     <div id="imgpass">
-      <h2><a href="https://github.com/Soyo-Wind/imgpass/">imgpass</a></h2>
+      <h3><a href="https://github.com/Soyo-Wind/imgpass/">imgpass</a></h3>
       <p>IMG to Steganography</p>
+      <p>画像にテキストを埋め込める、暗号ツール(ステガノグラフィというらしい)<br>LSB方式を採用している。</p>
     </div>
   </main>
   <footer>
-    <h1 id="footh"></h1>
-    <p id="foop"></p>
+    <br>
+    <p>by Soyo-Wind.</p>
   </footer>
-  <script>
-const footh = document.getElementById("footh");
-const foop = document.getElementById("foop");
-
-const data = {
-  sedit: {
-    title: "SharpEdit",
-    desc: "1ファイルのC#IDE。\nエディタにはAceEditor,フォントはJetBrains Mono,実行はWandboxAPIを使用している。"
-  },
-  dsharp: {
-    title: "D#",
-    desc: "Soyo-Windが作ったプログラミング言語。\n構文はPython:アセンブリが30:70の比率である。\nD#の構文をC++に変換する。"
-  },
-  grklang: {
-    title: "grk-lang",
-    desc: "Soyo-Windのオリジナル言語"
-  },
-  imgpass:{
-    title: "imgpass",
-    desc: "画像にテキストを埋め込める、暗号ツール(ステガノグラフィというらしい)\nLSB方式を採用している。"
-  }
-};
-for (const id in data) {
-  document.getElementById(id).addEventListener('mouseover', () => {
-    footh.innerText = data[id].title;
-    foop.innerText = data[id].desc;
-  });
-}
-document.body.addEventListener('mouseover', (e) => {
-  if (document.querySelector("header").contains(e.target)) {
-    footh.innerText = "";
-    foop.innerText = "";
-  }
-});
-    </script>
 </body>
 </html>
