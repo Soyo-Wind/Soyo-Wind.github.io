@@ -1,29 +1,165 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>Soyo-Wind</title>
-</head>
-<body>
-  <ul>SharpEdit
-    <li>repo: <a href="https://github.com/Soyo-Wind/SharpEdit/">https://github.com/Soyo-Wind/SharpEdit/</a></li>
-    <li>playground: <a href="https://soyo-wind.github.io/SharpEdit/">https://soyo-wind.github.io/SharpEdit/</a></li>
-    <li>1ファイルのC#IDE。<br>エディタにはAceEditor,フォントはJetBrains Mono,実行はWandboxAPIを使用している。</li>
-  </ul>
-  <br>
-  <ul>grk-lang
-    <li>repo: <a href="https://github.com/Soyo-Wind/grk-lang/">https://github.com/Soyo-Wind/grk-lang/</a></li>
-    <li>Soyo-Windのオリジナル言語</li>
-  </ul>
-  <br>
-  <ul>imgpass
-    <li>repo: <a href="https://github.com/Soyo-Wind/imgpass/">https://github.com/Soyo-Wind/imgpass/</a></li>
-    <li>画像にテキストを埋め込める、暗号ツール(ステガノグラフィというらしい)<br>LSB方式を採用している。</li>
-  </ul>
-  <br>
-  <ul>My dotfile
-    <li>repo: <a href="https://github.com/Soyo-Wind/dotfile/">https://github.com/Soyo-Wind/dotfile/</a></li>
-    <li>download(winget requied): <a href="https://soyo-wind.github.io/dotfile/dotfile.bat">https://soyo-wind.github.io/dotfile/dotfile.bat</a></li>
-  </ul>
-</body>
-</html>
+<!doctype html>
+<meta charset="UTF-8" />
+
+<style>
+    body {
+        max-width: 800px;
+        margin: 40px auto;
+        line-height: 1.6;
+    }
+
+    #search {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: blue;
+        text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    br {
+        margin: 0;
+    }
+</style>
+
+<input id="search" placeholder="search" />
+
+<div id="results"></div>
+
+<hr />
+
+<div id="view" />
+
+<script>
+    const PAGE_CACHE = {};
+    let PAGES = [];
+
+    // query parser
+    function getPage() {
+        return new URLSearchParams(location.search).get("p") || "main";
+    }
+
+    // markdown parser
+    function md(text) {
+        text = text.replace(/\r/g, "");
+        text = text.replace(/## (.*)\n/gi, "<h2>$1</h2>");
+        text = text.replace(/# (.*)\n/gi, "<h1>$1</h1>");
+
+        text = text.replace(/\*\*(.*?)\*\*/gim, "<b>$1</b>");
+        text = text.replace(/\*(.*?)\*/gim, "<i>$1</i>");
+
+        text = text.replace(
+            /~c\n/gi,
+            '<div style="background-color: white;color: black;outline: 2px solid;"><code>',
+        );
+        text = text.replace(
+            /~t\n/gi,
+            '<div style="background-color: black;color: white;outline: 2px solid;"><code>',
+        );
+        text = text.replace(
+            /~a\n/gi,
+            '<div style="background-color: gray;color: black;outline: 2px solid;"><code>',
+        );
+        text = text.replace(/~e/gi, "</code></div>");
+
+        text = text.replace(/\[\[(.*?)\]\]/gim, (m, p) => {
+            return `<a href="?p=${p}">${p}</a>`;
+        });
+
+        text = text.replace(/\n/g, "<br>");
+
+        return text;
+    }
+
+    // load page
+    async function load(page) {
+        let res = await fetch(page + ".md");
+        let txt = res.ok
+            ? await res.text()
+            : "このページはまだ書かれていません。";
+
+        document.getElementById("view").innerHTML = md(txt);
+    }
+
+    // load page list
+    async function loadPageList() {
+        const res = await fetch("pages");
+        const txt = await res.text();
+
+        PAGES = txt
+            .split("\n")
+            .map((x) => x.trim())
+            .filter((x) => x !== "");
+    }
+
+    // preload pages
+    async function preloadPages() {
+        for (const name of PAGES) {
+            try {
+                const res = await fetch(name + ".md");
+
+                if (res.ok) {
+                    const text = await res.text();
+                    PAGE_CACHE[name] = text + "\n" + name;
+                }
+            } catch (e) {
+                console.log("skip:", name);
+            }
+        }
+    }
+
+    // search
+    function search(query) {
+        query = query.toLowerCase();
+        const results = [];
+
+        for (const name in PAGE_CACHE) {
+            const text = PAGE_CACHE[name].toLowerCase();
+
+            if (text.includes(query)) {
+                results.push(name);
+            }
+        }
+
+        return results;
+    }
+
+    // search UI
+    document.getElementById("search").oninput = (e) => {
+        let q = e.target.value;
+
+        if (q === "") {
+            document.getElementById("results").innerHTML = "";
+            return;
+        }
+
+        let r = search(q);
+
+        document.getElementById("results").innerHTML = r
+            .map((p) => {
+                let name = p.split("/").pop();
+
+                return `<div>
+                <a href="?p=${p}">${name}</a>
+                <small style="color:gray">${p}</small>
+            </div>`;
+            })
+            .join("");
+    };
+
+    // init
+    async function init() {
+        await loadPageList();
+        await preloadPages();
+
+        load(getPage());
+    }
+
+    init();
+</script>
