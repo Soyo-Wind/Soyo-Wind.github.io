@@ -85,16 +85,16 @@
         );
         text = text.replace(/~e/gi, "</code></div>");
 
-        // [[内部リンク]]
-        text = text.replace(
-            /\[\[(.*?)\]\]/gim,
-            (m, p) => `<a href="?p=${p}">${p}</a>`,
-        );
-
         // [[[外部リンク]]]
         text = text.replace(
             /\[\[\[(.*?)\]\]\]/gim,
             (m, p) => `<a href="${p}">◈${p}</a>`,
+        );
+
+        // [[内部リンク]]
+        text = text.replace(
+            /\[\[(.*?)\]\]/gim,
+            (m, p) => `<a href="?p=${p}">${p}</a>`,
         );
 
         // 改行を <br> に
