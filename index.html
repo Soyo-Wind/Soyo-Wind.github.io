@@ -47,13 +47,29 @@
 
     // markdown parser
     function md(text) {
-        text = text.replace(/\r/g, "");
-        text = text.replace(/^## (.*)\n/gi, "<h2>$1</h2>");
-        text = text.replace(/^# (.*)\n/gi, "<h1>$1</h1>");
+        text = text.replace(/\r/g, ""); // CR削除
 
+        // 行ごとに分割
+        const lines = text.split("\n");
+        for (let i = 0; i < lines.length; i++) {
+            // ## 見出し2
+            if (/^## (.*)/.test(lines[i])) {
+                lines[i] = lines[i].replace(/^## (.*)/, "<h2>$1</h2>");
+            }
+            // # 見出し1
+            else if (/^# (.*)/.test(lines[i])) {
+                lines[i] = lines[i].replace(/^# (.*)/, "<h1>$1</h1>");
+            }
+            // それ以外の行はそのまま
+        }
+
+        text = lines.join("\n");
+
+        // 強調処理
         text = text.replace(/\*\*(.*?)\*\*/gim, "<b>$1</b>");
         text = text.replace(/\*(.*?)\*/gim, "<i>$1</i>");
 
+        // コードブロック
         text = text.replace(
             /~c\n/gi,
             '<div style="background-color: white;color: black;outline: 2px solid;"><code>',
@@ -68,10 +84,13 @@
         );
         text = text.replace(/~e/gi, "</code></div>");
 
-        text = text.replace(/\[\[(.*?)\]\]/gim, (m, p) => {
-            return `<a href="?p=${p}">${p}</a>`;
-        });
+        // [[リンク]]
+        text = text.replace(
+            /\[\[(.*?)\]\]/gim,
+            (m, p) => `<a href="?p=${p}">${p}</a>`,
+        );
 
+        // 改行を <br> に
         text = text.replace(/\n/g, "<br>");
 
         return text;
