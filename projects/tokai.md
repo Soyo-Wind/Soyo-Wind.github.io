@@ -2,4 +2,4 @@
 
 tinywmベースのwm.
 
-repo: [[https://github.com/Soyo-Wind/tokai/]]
+repo: [[[https://github.com/Soyo-Wind/tokai/]]]
