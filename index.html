@@ -48,8 +48,8 @@
     // markdown parser
     function md(text) {
         text = text.replace(/\r/g, "");
-        text = text.replace(/## (.*)\n/gi, "<h2>$1</h2>");
-        text = text.replace(/# (.*)\n/gi, "<h1>$1</h1>");
+        text = text.replace(/^## (.*)\n/gi, "<h2>$1</h2>");
+        text = text.replace(/^# (.*)\n/gi, "<h1>$1</h1>");
 
         text = text.replace(/\*\*(.*?)\*\*/gim, "<b>$1</b>");
         text = text.replace(/\*(.*?)\*/gim, "<i>$1</i>");
