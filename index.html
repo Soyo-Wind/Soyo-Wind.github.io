@@ -97,6 +97,12 @@
             (m, p) => `<a href="?p=${p}">${p}</a>`,
         );
 
+        // p[写真]
+        text = text.replace(
+            /p\[(.*?)\]/gim,
+            (m, p) => `<img src="${p}"/>`,
+        );
+
         // 改行を <br> に
         text = text.replace(/\n/g, "<br>");
 

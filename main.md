@@ -14,3 +14,4 @@ I'm **Soyo-Wind**.
 [[projects/sntvm]]
 [[projects/sowiki]]
 [[projects/tokai]]
+[[puyo/q土台]]
