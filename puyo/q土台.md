@@ -4,9 +4,9 @@
 
 特徴
 ・発火しやすい
-・右伸ばし向け
-・新GTR,GTR(右に1つ空く)と接続可能
-・必要色が少ない
+・他の土台と接続可能
+・2色必要
+・連鎖尾にもなる
 
 左ver.
 p[https://puyonexus.com/chainsim/image/9WbwE.png]
