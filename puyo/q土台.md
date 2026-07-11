@@ -15,4 +15,4 @@ p[https://puyonexus.com/chainsim/image/9WbwE.png]
 p[https://puyonexus.com/chainsim/image/hn7jX.png]
 
 伸ばし例
-p[https://puyonexus.com/chainsim/image/JbZDD.png]
+p[https://puyonexus.com/chainsim/image/JbZDD.gif]
