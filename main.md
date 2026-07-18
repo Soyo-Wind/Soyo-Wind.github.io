@@ -15,4 +15,3 @@ I'm **Soyo-Wind**.
 [[projects/sowiki]]
 [[projects/tokai]]
 [[puyo/q土台]]
-[[puyo/大和積み]]
