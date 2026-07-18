@@ -1,0 +1,18 @@
+# 大和積み
+
+自作のぷよ土台です。
+(既出の可能性あり)
+
+特徴
+・宇宙から発火した場合、2連鎖を担保できる
+・発火しやすい
+・サブマリン側からも宇宙側からも発火できる
+・最低3色必要
+
+p[https://puyonexus.com/chainsim/image/fnty1.png]
+
+伸ばし例 サブマリン->宇宙
+p[https://puyonexus.com/chainsim/image/JbZDD.gif]
+
+伸ばし例 宇宙->サブマリン
+p[https://puyonexus.com/chainsim/image/Xndzg.gif]
