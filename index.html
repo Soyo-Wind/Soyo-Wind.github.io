@@ -111,6 +111,7 @@
 
     // load page
     async function load(page) {
+        document.getElementById("view").innerHTML = "Loading page...";
         let res = await fetch(page + ".md");
         let txt = res.ok
             ? await res.text()
@@ -132,6 +133,7 @@
 
     // preload pages
     async function preloadPages() {
+        document.getElementById("view").innerHTML = "Preloading all pages...";
         for (const name of PAGES) {
             try {
                 const res = await fetch(name + ".md");
