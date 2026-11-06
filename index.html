@@ -136,12 +136,7 @@
         document.getElementById("view").innerHTML = "Preloading all pages...";
         for (const name of PAGES) {
             try {
-                const res = await fetch(name + ".md");
-
-                if (res.ok) {
-                    const text = await res.text();
-                    PAGE_CACHE[name] = text + "\n" + name;
-                }
+                PAGE_CACHE[name] = name;
             } catch (e) {
                 console.log("skip:", name);
             }
