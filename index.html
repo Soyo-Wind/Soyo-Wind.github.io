@@ -102,6 +102,11 @@
             /p\[(.*?)\]/gim,
             (m, p) => `<img src="${p}"/>`,
         );
+        // t[tetofu]
+        text = text.replace(
+            /t\[(.*?)\]/gim,
+            (m, p) => `<a href="${p}">tetofu</a>`,
+        );
 
         // 改行を <br> に
         text = text.replace(/\n/g, "<br>");
